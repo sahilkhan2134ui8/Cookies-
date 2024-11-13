@@ -44,4 +44,5 @@ def main():
         if random.random() < 0.5:
             print(f'Haters gonna hate: {haters_name}')
 
-if __name__ == '__main
+if __name__ == '__main__':
+    main()
