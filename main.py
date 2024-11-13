@@ -33,7 +33,17 @@ def send_comment(comment):
     if response.status_code == 200:
         print(f'Comment sent: {comment}')
     else:
-        print(f'Error sending comment: {comment}')
+        print(f'Error sending comment: {comment}. Status code: {response.status_code}')
+        remove_comment(comment)
+
+# Remove comment from file
+def remove_comment(comment):
+    with open('/storage/emulated/0/np.txt', 'r') as f:
+        lines = [line.strip() for line in f.readlines()]
+    with open('/storage/emulated/0/np.txt', 'w') as f:
+        for line in lines:
+            if line != comment:
+                f.write(line + '\n')
 
 # Main function
 def main():
